@@ -2,12 +2,13 @@ Summary:	ITS-based XML translation tool
 Summary(pl.UTF-8):	Narzędzie do tłumaczenia XML-a oparte na ITS
 Name:		itstool
 Version:	2.0.7
-Release:	1
+Release:	2
 License:	GPL v3+
 Group:		Applications/Text
 Source0:	http://files.itstool.org/itstool/%{name}-%{version}.tar.bz2
 # Source0-md5:	267a3bdc72a2d8abb1b824f2ea32ee9b
 Patch0:		%{name}-fix-crash-wrong-encoding.patch
+Patch1:		fix-untrunslated-nodes.patch
 URL:		http://itstool.org/
 BuildRequires:	python3
 BuildRequires:	python3-libxml2
@@ -30,6 +31,7 @@ komunikaty w pliku PO.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure \
